@@ -136,14 +136,14 @@ var ean = {
 		ean.canvas.width = ean.video.videoWidth;
 		ean.canvas.height = ean.video.videoHeight;
 		ean.ctx = ean.canvas.getContext('2d');
-		ean.timer = setTimeout(ean.loop,2000);
+		ean.timer = setTimeout(ean.loop,250);
 	}, 
 	loop: function(){
 		console.log('loop fired');
 		ean.captureToCanvas();
 		if (!ean.found) {
 			console.log('EAN not found, rescan!');
-			ean.timer = setTimeout(ean.loop,2000);
+			ean.timer = setTimeout(ean.loop,250);
 		} else {
 			console.log('EAN found');
 
