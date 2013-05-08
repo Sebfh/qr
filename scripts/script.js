@@ -13,7 +13,7 @@ var qry = {
 		qry.captureToCanvas();
 		if (!qry.found) {
 			qry.out.className = '';
-			qry.out.innerHTML = 'scan your code';
+			qry.out.innerHTML = 'scanning for QR-code ...';
 			qry.timer = setTimeout(qry.loop,250);
 		} else {
 			if (qry.timer) { clearTimeout(qry.timer); }

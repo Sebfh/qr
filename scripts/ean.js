@@ -57,7 +57,7 @@ var ean = {
 		//console.log('loop fired');
 		ean.captureToCanvas();
 		if (ean.number == 'empty') {
-			ean.out.innerHTML = 'scanning...';
+			ean.out.innerHTML = 'scanning for EAN-code ...';
 			ean.timer = setTimeout(ean.loop,250);
 		} else {
 			//console.log('EAN found');
