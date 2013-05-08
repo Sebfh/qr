@@ -57,14 +57,15 @@ var ean = {
 		//console.log('loop fired');
 		ean.captureToCanvas();
 		if (ean.number == 'empty') {
-			//console.log('EAN not found, rescan!');
+			ean.out.innerHTML = 'scanning...';
 			ean.timer = setTimeout(ean.loop,250);
 		} else {
 			//console.log('EAN found');
 			ean.out.innerHTML = ean.number;
 
 			if (ean.timer) { 
-				clearTimeout(ean.timer); 
+				//clearTimeout(ean.timer); 
+				setTimeout(ean.loop,5000)
 			}
 		}
 	},
