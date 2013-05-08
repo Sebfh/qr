@@ -61,7 +61,7 @@ var ean = {
 			ean.timer = setTimeout(ean.loop,250);
 		} else {
 			//console.log('EAN found');
-			alert(ean.number);
+			ean.out.innerHTML = ean.number;
 
 			if (ean.timer) { 
 				clearTimeout(ean.timer); 
