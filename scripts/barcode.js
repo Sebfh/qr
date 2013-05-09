@@ -89,6 +89,8 @@ var barcode = {
 	                ];
 	                code += u[digits.join('')] || u[digits.reverse().join('')] || 'X';
 	                
+	                console.log(code);
+
 	                if(12 == code.length){ 
 	                	//console.log(code); 
 	                	break; 

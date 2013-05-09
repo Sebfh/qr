@@ -8,6 +8,9 @@ var ean = {
 	found: false,
 	captured: '',
 	number: '',
+	settings: {
+		loop: true
+	},
 	init: function(){
 		//console.log('initialized ean object');
 
@@ -15,10 +18,6 @@ var ean = {
 		ean.video = document.getElementById('sourcevid');
 		ean.out = document.getElementById('out');
 		ean.captured = document.getElementById('captured');
-
-		//console.log(ean.video);
-		//console.log(ean.out);
-		//console.log(ean.captured);
 
 		// Standard and prefixed methods for hooking into stream
 		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
@@ -41,7 +40,6 @@ var ean = {
 
 		barcode.callback = function(n) { 
 			ean.number = n;
-			//console.log('ean.number = ' + n); 
 		}
 
 	},
@@ -54,7 +52,6 @@ var ean = {
 		ean.timer = setTimeout(ean.loop,250);
 	}, 
 	loop: function(){
-		//console.log('loop fired');
 		ean.captureToCanvas();
 		if (ean.number == 'empty') {
 			ean.out.innerHTML = 'scanning for EAN-code ...';
@@ -64,8 +61,12 @@ var ean = {
 			ean.out.innerHTML = ean.number;
 
 			if (ean.timer) { 
-				//clearTimeout(ean.timer); 
-				setTimeout(ean.loop,5000)
+				if (ean.settings.loop){
+					setTimeout(ean.loop,5000)
+				} else {
+					clearTimeout(ean.timer); 
+					ean.video.pause();
+				}
 			}
 		}
 	},
