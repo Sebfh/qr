@@ -1,7 +1,7 @@
 qr
 ==
 
-This is a demo of WebRT. It is used to scan a qr-code with use of the browsers webcam.
+This is a demo of WebRT. It is used to scan a QR or EAN-code with use of the browsers webcam.
 
 
 ## demo
